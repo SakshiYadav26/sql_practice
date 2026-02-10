@@ -1,0 +1,40 @@
+select full_name from members where referred_by <> 102 or referred_by IS NULL;
+
+
+-- Member Referral
+-- SQL
+-- Junior
+-- Table: members
+-- +-------------+---------+
+-- | Column Name | Type    |
+-- +-------------+---------+
+-- | member_id   | int     |
+-- | full_name   | varchar |
+-- | referred_by | int     |
+-- +-------------+---------+
+-- member_id is the primary key.
+-- Each record stores a member’s ID, their name, and the ID of the member who referred them (if any).
+-- List the full_name of every member who was not referred by the member with member_id = 102.
+-- Return the rows in any order.
+-- Example 1:
+-- Input:
+-- members table
+-- +-----------+-----------+-------------+
+-- | member_id | full_name | referred_by |
+-- +-----------+-----------+-------------+
+-- | 101       | Alice     | NULL        |
+-- | 102       | Bob       | NULL        |
+-- | 103       | Clara     | 102         |
+-- | 104       | David     | NULL        |
+-- | 105       | Elena     | 101         |
+-- | 106       | Frank     | 102         |
+-- +-----------+-----------+-------------+
+-- Output:
+-- +-----------+
+-- | full_name |
+-- +-----------+
+-- | Alice     |
+-- | Bob       |
+-- | David     |
+-- | Elena     |
+-- +-----------+
