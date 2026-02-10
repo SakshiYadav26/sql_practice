@@ -1,0 +1,41 @@
+-- Post Views
+-- SQL
+-- Junior
+-- Table: postviews
+-- +-------------+------+
+-- | Column Name | Type |
+-- +-------------+------+
+-- | post_id     | int  |
+-- | writer_id   | int  |
+-- | reader_id   | int  |
+-- | read_on     | date |
+-- +-------------+------+
+-- You are given a table called postviews. Each row records that a certain reader opened a specific post written by a particular writer on a certain date. When writer_id = reader_id, it means the post author read their own material.
+-- Write a query that lists every writer who has viewed at least one of their own posts.
+-- Return the result sorted by id (ascending).
+-- Example 1:
+-- Input:
+-- postviews table:
+-- +---------+-----------+-----------+------------+
+-- | post_id | writer_id | reader_id | read_on    |
+-- +---------+-----------+-----------+------------+
+-- | 1       | 10        | 20        | 2025-03-01 |
+-- | 1       | 10        | 10        | 2025-03-02 |
+-- | 2       | 11        | 12        | 2025-03-03 |
+-- | 2       | 11        | 11        | 2025-03-05 |
+-- | 3       | 12        | 14        | 2025-03-01 |
+-- | 4       | 13        | 13        | 2025-03-02 |
+-- | 4       | 13        | 13        | 2025-03-02 |
+-- +---------+-----------+-----------+------------+
+-- Output:
+-- +----+
+-- | id |
+-- +----+
+-- | 10 |
+-- | 11 |
+-- | 13 |
+-- +----+
+
+
+select distinct(writer_id) as id from postviews where writer_id = reader_id order by writer_id;
+
