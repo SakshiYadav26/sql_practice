@@ -1,0 +1,44 @@
+-- GeoStats
+-- SQL
+-- Junior
+-- Table: geostats
+-- +-----------+------------+
+-- | Column    | Type       |
+-- +-----------+------------+
+-- | geo_name  | varchar    |
+-- | zone      | varchar    |
+-- | surface   | int        |
+-- | residents | int        |
+-- | gnp       | bigint     |
+-- +-----------+------------+
+-- You are given a table geostats that stores basic information about several geographic entities. An entity is classified as sprawling when either of the following is true
+-- its surface is at least 3 000 000 km², OR
+-- its residents count is at least 25 000 000.
+-- Write a query that returns the geo_name, residents, and surface for every sprawling entity.
+-- Return the rows in any order.
+-- Example 1:
+-- Input:
+-- geostats table
+-- +-------------+-----------+----------+-----------+-------------+
+-- | geo_name    | zone      | surface  | residents | gnp         |
+-- +-------------+-----------+----------+-----------+-------------+
+-- | Borealia    | North     | 9200000  | 15000000  | 500000000000|
+-- | Pacifica    | West      | 2500000  | 30000000  | 230000000000|
+-- | Equatoria   | Central   | 1000000  |  5000000  | 10000000000 |
+-- | Saharica    | South     | 3100000  |  1000000  | 15000000000 |
+-- | Littoria    | East      |    5000  | 90000000  |2000000000000|
+-- | Mountania   | Highlands |  800000  | 20000000  | 17000000000 |
+-- +-------------+-----------+----------+-----------+-------------+
+-- Output:
+-- +-----------+-----------+----------+
+-- | geo_name  | residents | surface  |
+-- +-----------+-----------+----------+
+-- | Borealia  | 15000000  | 9200000  |
+-- | Pacifica  | 30000000  | 2500000  |
+-- | Saharica  |  1000000  | 3100000  |
+-- | Littoria  | 90000000  |    5000  |
+-- +-----------+-----------+----------+
+
+
+select geo_name, residents, surface from geostats
+where surface > 3000000 or residents >= 25000000;
